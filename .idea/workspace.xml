@@ -7,8 +7,6 @@
     <list default="true" id="720be0f2-3d57-442f-9347-6c6bb44729cd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prueba_lkmx/environments.py" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_lkmx/environments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prueba_lkmx/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_lkmx/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +64,7 @@
       <updated>1746385114592</updated>
       <workItem from="1746385115657" duration="220000" />
       <workItem from="1746386079234" duration="4222000" />
-      <workItem from="1746390620711" duration="5990000" />
+      <workItem from="1746390620711" duration="6157000" />
     </task>
     <servers />
   </component>

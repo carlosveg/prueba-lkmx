@@ -107,8 +107,10 @@ El archivo `.env` debe tener el siguiente contenido:
 ## Ejemplo de uso con curl
 
 > [!IMPORTANT]
-> Para obtener el token de auth0 actualmente es necesario usar cURL para obtenerlo (el snippet se los compartiré como archivo adjunto)
-
+> Para obtener el token de auth0 actualmente es necesario usar cURL para obtenerlo (el snippet se los compartiré como
+> archivo adjunto)
+> Se agregó un endpoint que requiere una api key para poder consumirlo, este endpoint devuelve el token de oauth para
+> poder consumir el endpoint de creación de wallet
 
 ```bash
 # Obtener un token desde Auth0 (usando client credentials o dashboard)
@@ -132,6 +134,12 @@ curl --location 'http://localhost:8000/wallets/count'
 ```bash
 # Consultar estado del servicio
 curl --location 'http://localhost:8000/test'
+```
+
+```bash
+# Obtener token auth0
+curl --location 'http://localhost:8000/auth0/token' \
+--header 'x-api-key: <API KEY>'
 ```
 
 ## Logger
