@@ -102,20 +102,36 @@ El archivo `.env` debe tener el siguiente contenido:
 - `GET /test/` — Revisar si el servidor ya se encuentra disponible
 - `POST /wallets/create` — Crear un wallet (requiere token JWT).
 - `GET /wallets/count` — Contar los wallets registrados.
+- `GET /auth0/token` — Obtener token de auth0 # requiere header 'X-API-Key'
 
 ## Ejemplo de uso con curl
+
+> [!IMPORTANT]
+> Para obtener el token de auth0 actualmente es necesario usar cURL para obtenerlo (el snippet se los compartiré como archivo adjunto)
+
 
 ```bash
 # Obtener un token desde Auth0 (usando client credentials o dashboard)
 
-# Crear libro (requiere Authorization: Bearer <token>)
-curl -X POST http://localhost:8000/api/crear/ \
-  -H "Authorization: Bearer $TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{"titulo": "Django para todos", "autor": "Juan", "publicado": "2023-01-01"}'
+# Crear wallet (requiere Authorization: Bearer <token>)
+curl --location 'http://localhost:8000/wallets/create' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <TOKEN>' \
+--data '{
+	"name": "Apartado 2",
+	"amount": 14
+}'
 
+```
+
+```bash
 # Consultar total de libros registrados
-curl http://localhost:8000/api/contar/
+curl --location 'http://localhost:8000/wallets/count'
+```
+
+```bash
+# Consultar estado del servicio
+curl --location 'http://localhost:8000/test'
 ```
 
 ## Logger

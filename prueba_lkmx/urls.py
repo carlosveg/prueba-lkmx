@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from core.routes.auth0_routes import get_auth0_token
 from core.routes.test_routes import test
 from core.routes.wallets_routes import count, create_wallet
 
@@ -24,5 +25,6 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path("test/", test),
     path("wallets/count", count),
-    path("wallets/create", create_wallet)
+    path("wallets/create", create_wallet),
+    path("auth0/token", get_auth0_token)
 ]
