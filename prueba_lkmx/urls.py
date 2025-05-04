@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from core.routes.test_routes import test
+from core.routes.wallets_routes import count
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("test/", test),
+    path("wallets/count", count)
 ]
