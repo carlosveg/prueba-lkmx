@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import path
 
 from core.routes.test_routes import test
-from core.routes.wallets_routes import count
+from core.routes.wallets_routes import count, create_wallet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("test/", test),
-    path("wallets/count", count)
+    path("wallets/count", count),
+    path("wallets/create", create_wallet)
 ]
