@@ -147,4 +147,4 @@ curl --location 'http://localhost:8000/auth0/token' \
 - Los modelos se declaran en `core/models.py`.
 - Los endpoints se definen en `core/routes/` y se exponen vía `prueba_lkmx/urls.py`.
 - Se usa Auth0 para la validación de tokens JWT usando la librería `python-jose`.
-- Puedes extender el proyecto fácilmente agregando más modelos, servicios y endpoints.
+- La estructura de carpetas da pie a que se pueda extender el proyecto fácilmente agregando más modelos, servicios y endpoints.
