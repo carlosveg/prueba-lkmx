@@ -142,20 +142,6 @@ curl --location 'http://localhost:8000/auth0/token' \
 --header 'x-api-key: <API KEY>'
 ```
 
-## Logger
-
-Puedes agregar tus propios logs usando el sistema de logging de Django. Se ha configurado para mostrar mensajes de nivel
-`INFO` y superior en consola.
-
-Ejemplo de uso en cualquier vista o servicio:
-
-```python
-import logging
-
-logger = logging.getLogger(__name__)
-logger.info("Mensaje informativo personalizado")
-```
-
 ## Notas Finales
 
 - Los modelos se declaran en `core/models.py`.
