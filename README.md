@@ -142,6 +142,21 @@ curl --location 'http://localhost:8000/auth0/token' \
 --header 'x-api-key: <API KEY>'
 ```
 
+## Script para crear la BD para el ejercicio
+```sql
+create database LKMX;
+
+-- conectarse a la BD LKMX para crear la tabla
+
+create table if not exists wallets(
+	id serial primary key,
+	name varchar(255) not null,
+	amount decimal not null
+);
+
+select * from wallets
+```
+
 ## Notas Finales
 
 - Los modelos se declaran en `core/models.py`.
