@@ -71,7 +71,7 @@ def require_auth0_token(func):
             log.error(f"An error occurred while validating the token: {e}")
             return JsonResponse({
                 "message": f"An error occurred while validating the token: {e}"
-            })
+            }, status=401)
 
         return func(request, *args, **kwargs)
     return wrapper
