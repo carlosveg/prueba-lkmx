@@ -4,6 +4,9 @@ from django.http import JsonResponse
 
 from core.models import WalletModel
 
+import logging
+
+log = logging.getLogger(__name__)
 
 class WalletService:
     def get_count(self):
@@ -11,11 +14,9 @@ class WalletService:
 
     def create_wallet(self, request):
         try:
-            print(f"Request: {request}")
-            print(f"Desmadre: {request.decode('utf-8')}")
             wallet = json.loads(request)
-            print(f"Desmadre: {wallet}")
         except Exception as e:
+            log.error(f"An error occurred when loading the JSON data: {e}")
             # raise e
             return JsonResponse({
                 "message": "An error occurred when loading the JSON data",
@@ -26,8 +27,9 @@ class WalletService:
         missing_fields = [field for field in required_fields if field not in wallet]
 
         if missing_fields:
+            log.error(f"Missing fields: {', '.join(missing_fields)}")
             return {
-                "message": f"Faltan campos: {', '.join(missing_fields)}",
+                "message": f"Missing fields: {', '.join(missing_fields)}",
                 "status_code": 400
             }
 
@@ -35,6 +37,7 @@ class WalletService:
             wallet["amount"] = str(wallet["amount"])
             wallet_response = WalletModel.objects.create(**wallet)
         except Exception as e:
+            log.error(f"An error occurred when creating the wallet: {e}")
             # raise e
             return {
                 "message": f"An error occurred when creating the wallet: {e}",
