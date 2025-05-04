@@ -96,6 +96,7 @@ El archivo `.env` debe tener el siguiente contenido:
 | AUTH0_DOMAIN         | Dominio que se ortorga al crear la App en [Auth0](https://auth0.com). |
 | AUTH0_API_IDENTIFIER | Identificador de la api creada en [Auth0](https://auth0.com).         |
 | AUTH0_ALGORITHMS     | Algoritmo del token auth0                                             |
+| X_API_KEY            | Api key para poder consumir el endpoint que obtiene el token de auth0 |
 
 ## Endpoints Disponibles
 
@@ -108,9 +109,9 @@ El archivo `.env` debe tener el siguiente contenido:
 
 > [!IMPORTANT]
 > - Para obtener el token de auth0 actualmente es necesario usar cURL para obtenerlo (el snippet se los compartiré como
-> archivo adjunto)
+    > archivo adjunto)
 > - Se agregó un endpoint que requiere una api key para poder consumirlo, este endpoint devuelve el token de oauth para
-> poder consumir el endpoint de creación de wallet
+    > poder consumir el endpoint de creación de wallet
 
 ```bash
 # Obtener un token desde Auth0 (usando client credentials o dashboard)
@@ -143,18 +144,29 @@ curl --location 'http://localhost:8000/auth0/token' \
 ```
 
 ## Script para crear la BD para el ejercicio
+
 ```sql
-create database LKMX;
+create
+database LKMX;
 
 -- conectarse a la BD LKMX para crear la tabla
 
-create table if not exists wallets(
-	id serial primary key,
-	name varchar(255) not null,
-	amount decimal not null
-);
+create table if not exists wallets
+(
+    id
+    serial
+    primary
+    key,
+    name
+    varchar
+(
+    255
+) not null,
+    amount decimal not null
+    );
 
-select * from wallets
+select *
+from wallets
 ```
 
 ## Notas Finales
@@ -162,4 +174,5 @@ select * from wallets
 - Los modelos se declaran en `core/models.py`.
 - Los endpoints se definen en `core/routes/` y se exponen vía `prueba_lkmx/urls.py`.
 - Se usa Auth0 para la validación de tokens JWT usando la librería `python-jose`.
-- La estructura de carpetas da pie a que se pueda extender el proyecto fácilmente agregando más modelos, servicios y endpoints.
+- La estructura de carpetas da pie a que se pueda extender el proyecto fácilmente agregando más modelos, servicios y
+  endpoints.
